@@ -114,24 +114,20 @@ onLogin(async (user) => {
 
 // Views
 
-passwordsView.style.display = "none";
-
 onLogin(() => {
   authView.style.display = "none";
-  passwordsView.style.display = "";
+  passwordsView.style.display = "flex";
 });
 
 onLogout(() => {
   passwordsView.style.display = "none";
-  authView.style.display = "";
+  authView.style.display = "block";
 });
 
 // Password Viewer/Editor
 
 let passwordViewerPassword: Password | null = null;
 let passwordViewerCreateMode = false;
-
-passwordViewer.container.style.display = "none";
 
 const closePasswordView = () => {
   passwordViewer.container.style.opacity = "0";
@@ -150,7 +146,7 @@ const openPasswordView = (password: Password, create = false) => {
   passwordViewer.notes.value = passwordViewerPassword.notes;
   passwordViewer.name.value = passwordViewerPassword.name;
 
-  passwordViewer.container.style.display = "";
+  passwordViewer.container.style.display = "flex";
   passwordViewer.container.style.opacity = "0";
   setTimeout(() => {
     passwordViewer.container.style.opacity = "1";

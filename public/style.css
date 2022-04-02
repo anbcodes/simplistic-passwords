@@ -69,7 +69,7 @@ template {
   position: absolute;
   left: 0px;
   top: 0px;
-  display: flex;
+  display: none;
   justify-content: center;
   width: 100vw;
   height: 100vh;
@@ -112,12 +112,25 @@ template {
 
 /* Auth View */
 
-#login-view, #signup-view {
+#auth-view {
+  display: none;
+}
+
+#login-view {
   display: flex;
+  flex-direction: column;
+}
+#signup-view {
+  display: none;
   flex-direction: column;
 }
 
 /* Passwords */
+
+#passwords-view {
+  display: none;
+  flex-direction: column;
+}
 
 .password-container {
   display: flex;
@@ -165,4 +178,5 @@ template {
   padding: 10px;
   margin: 10px;
   transition: all 200ms;
+  display: none;
 }

@@ -17582,10 +17582,8 @@ const passwordsList = ensure("#passwords-list");
 const error = ensure("#error");
 const addPassword = ensure("#add-password");
 const passwordSearch = ensure("#password-search");
-error.style.display = "none";
-error.style.display = "0";
 const displayError = (s)=>{
-    error.style.display = "";
+    error.style.display = "block";
     error.style.opacity = "0";
     setTimeout(()=>error.style.opacity = "1"
     );
@@ -17766,13 +17764,12 @@ logout.addEventListener("click", ()=>{
     signOut(auth);
     localStorage.removeItem("key");
 });
-signup.view.style.display = "none";
 signup.switch.addEventListener("click", ()=>{
     signup.view.style.display = "none";
-    login.view.style.display = "";
+    login.view.style.display = "flex";
 });
 login.switch.addEventListener("click", ()=>{
-    signup.view.style.display = "";
+    signup.view.style.display = "flex";
     login.view.style.display = "none";
 });
 const firebaseConfig = {
@@ -17831,18 +17828,16 @@ onLogin(async (user)=>{
     });
     await save();
 });
-passwordsView.style.display = "none";
 onLogin(()=>{
     authView.style.display = "none";
-    passwordsView.style.display = "";
+    passwordsView.style.display = "flex";
 });
 onLogout(()=>{
     passwordsView.style.display = "none";
-    authView.style.display = "";
+    authView.style.display = "block";
 });
 let passwordViewerPassword = null;
 let passwordViewerCreateMode = false;
-passwordViewer.container.style.display = "none";
 const closePasswordView = ()=>{
     passwordViewer.container.style.opacity = "0";
     setTimeout(()=>{
@@ -17857,7 +17852,7 @@ const openPasswordView = (password, create = false)=>{
     passwordViewer.username.value = passwordViewerPassword.username;
     passwordViewer.notes.value = passwordViewerPassword.notes;
     passwordViewer.name.value = passwordViewerPassword.name;
-    passwordViewer.container.style.display = "";
+    passwordViewer.container.style.display = "flex";
     passwordViewer.container.style.opacity = "0";
     setTimeout(()=>{
         passwordViewer.container.style.opacity = "1";

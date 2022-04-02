@@ -150,14 +150,12 @@ logout.addEventListener("click", () => {
   localStorage.removeItem("key");
 });
 
-signup.view.style.display = "none";
-
 signup.switch.addEventListener("click", () => {
   signup.view.style.display = "none";
-  login.view.style.display = "";
+  login.view.style.display = "flex";
 });
 
 login.switch.addEventListener("click", () => {
-  signup.view.style.display = "";
+  signup.view.style.display = "flex";
   login.view.style.display = "none";
 });

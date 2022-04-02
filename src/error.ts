@@ -1,10 +1,7 @@
 import { error } from "./elements.ts";
 
-error.style.display = "none";
-error.style.display = "0";
-
 export const displayError = (s: string) => {
-  error.style.display = "";
+  error.style.display = "block";
   error.style.opacity = "0";
   setTimeout(() => error.style.opacity = "1");
   error.textContent = s;
