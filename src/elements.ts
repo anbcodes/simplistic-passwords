@@ -49,6 +49,7 @@ export const passwordViewer = {
   notes: ensure<HTMLTextAreaElement>("#password-view-notes"),
   save: ensure<HTMLButtonElement>("#password-view-save"),
   cancel: ensure<HTMLButtonElement>("#password-view-cancel"),
+  remove: ensure<HTMLButtonElement>("#password-view-delete"),
 };
 
 export const authView = ensure<HTMLDivElement>(

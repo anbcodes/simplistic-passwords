@@ -102,6 +102,10 @@ signup.submit.addEventListener("click", async () => {
       local: arrayBufferToBase64(localSalt),
       owner: user.user.uid,
     });
+
+    signup.password.value = "";
+    signup.confirmPassword.value = "";
+    signup.email.value = "";
   } else {
     displayError(
       "Email and password must exist and confirm password must equal password",
@@ -140,6 +144,9 @@ login.submit.addEventListener("click", async () => {
       handleAuthError(e);
       return;
     }
+
+    login.password.value = "";
+    login.email.value = "";
   } else {
     displayError("Email and password must exist");
   }

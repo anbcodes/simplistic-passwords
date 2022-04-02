@@ -109,6 +109,21 @@ template {
   }  
 }
 
+#password-view-cancel {
+  margin-left: 1rem;
+}
+
+#password-view-delete {
+  margin-left: 1rem;
+  box-shadow: 0 0 5px red;
+  border-color: red;
+}
+
+#password-view-delete:hover {
+  box-shadow: 0 0 5px red;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
 
 /* Auth View */
 

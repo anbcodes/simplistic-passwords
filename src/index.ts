@@ -173,6 +173,18 @@ passwordViewer.save.addEventListener("click", () => {
   closePasswordView();
 });
 
+passwordViewer.remove.addEventListener("click", () => {
+  if (!passwordViewerCreateMode) {
+    appData.passwords = appData.passwords.filter((v) =>
+      v !== passwordViewerPassword
+    );
+
+    save();
+  }
+
+  closePasswordView();
+});
+
 passwordViewer.cancel.addEventListener("click", () => {
   closePasswordView();
 });
