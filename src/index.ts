@@ -146,6 +146,12 @@ const openPasswordView = (password: Password, create = false) => {
   passwordViewer.notes.value = passwordViewerPassword.notes;
   passwordViewer.name.value = passwordViewerPassword.name;
 
+  if (create) {
+    passwordViewer.remove.style.display = "none";
+  } else {
+    passwordViewer.remove.style.display = "inline";
+  }
+
   passwordViewer.container.style.display = "flex";
   passwordViewer.container.style.opacity = "0";
   setTimeout(() => {
@@ -174,15 +180,14 @@ passwordViewer.save.addEventListener("click", () => {
 });
 
 passwordViewer.remove.addEventListener("click", () => {
-  if (!passwordViewerCreateMode) {
+  if (!passwordViewerCreateMode && confirm("Delete?")) {
     appData.passwords = appData.passwords.filter((v) =>
       v !== passwordViewerPassword
     );
 
     save();
+    closePasswordView();
   }
-
-  closePasswordView();
 });
 
 passwordViewer.cancel.addEventListener("click", () => {
