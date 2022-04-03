@@ -195,3 +195,8 @@ template {
   transition: all 200ms;
   display: none;
 }
+
+#issue {
+  color:rgb(172, 172, 172);
+  margin-top: 4rem;
+}
