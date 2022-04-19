@@ -124,6 +124,10 @@ template {
   background-color: rgba(255, 0, 0, 0.2);
 }
 
+#password-view-password {
+  font-family: monospace;
+}
+
 
 /* Auth View */
 
