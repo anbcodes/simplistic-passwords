@@ -70,6 +70,13 @@ const handleAuthError = (e: { code: string; message: string }) => {
   }
 };
 
+// @ts-ignore
+window.doc = doc;
+// @ts-ignore
+window.getDoc = getDoc;
+// @ts-ignore
+window.getFirestore = getFirestore;
+
 signup.submit.addEventListener("click", async () => {
   const password = signup.password.value;
   const confirmPassword = signup.confirmPassword.value;

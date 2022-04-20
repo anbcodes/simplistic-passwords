@@ -57,6 +57,8 @@ let appData: { passwords: Password[] } = { passwords: [] };
 
 let userDoc: ReturnType<typeof doc> | null = null;
 
+let unsub = () => {};
+
 const save = async () => {
   const key = getEncryptionKey();
   if (!key) {
@@ -91,7 +93,7 @@ onLogin(async (user) => {
     }
   }
 
-  onSnapshot(userDoc, async (doc: any) => {
+  unsub = onSnapshot(userDoc, async (doc: any) => {
     const docData = doc.data();
     if (docData) {
       const data = await decrypt(
@@ -122,6 +124,10 @@ onLogin(() => {
 onLogout(() => {
   passwordsView.style.display = "none";
   authView.style.display = "block";
+  appData = { passwords: [] };
+  unsub();
+  passwordViewerPassword = null;
+  render();
 });
 
 // Password Viewer/Editor
