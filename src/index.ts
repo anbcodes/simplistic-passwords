@@ -11,10 +11,14 @@ import {
 import { getEncryptionKey, init, onLogin, onLogout } from "./auth.ts";
 import { base64ToArrayBuffer, decrypt, encrypt } from "./crypto.ts";
 
+import { displayError } from "./error.ts";
+
 import {
   addPassword,
   authView,
+  changePassword,
   makePassword,
+  passwordChanger,
   passwordSearch,
   passwordsList,
   passwordsView,
@@ -253,6 +257,32 @@ addPassword.addEventListener("click", () => {
     password: generateRandomPassword(),
     username: "Your Email",
   }, true);
+});
+
+// Change Password
+
+const getNewPassword = () =>
+  new Promise((resolve) => {
+    passwordChanger.container.style.display = "flex";
+    passwordChanger.submit.onclick = () => {
+      if (
+        passwordChanger.password.value === passwordChanger.confirmPassword.value
+      ) {
+        resolve(passwordChanger.password.value);
+        passwordChanger.password.value = "";
+        passwordChanger.confirmPassword.value = "";
+      } else {
+        displayError("Passwords don't match");
+      }
+    };
+
+    passwordChanger.cancel.onclick = close;
+    passwordChanger.container.onclick = close;
+    passwordChanger.card.onclick = (e) => e.stopPropagation();
+  });
+
+changePassword.addEventListener("click", async () => {
+  const password = await getNewPassword();
 });
 
 // Util

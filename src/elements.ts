@@ -82,4 +82,16 @@ export const error = ensure<HTMLDivElement>("#error");
 
 export const addPassword = ensure<HTMLButtonElement>("#add-password");
 
+export const changePassword = ensure<HTMLButtonElement>("#change-password");
+export const passwordChanger = {
+  container: ensure<HTMLDivElement>("#password-changer"),
+  card: ensure<HTMLDivElement>("#password-changer-card"),
+  password: ensure<HTMLInputElement>("#password-changer-password"),
+  confirmPassword: ensure<HTMLInputElement>(
+    "#password-changer-confirm-password",
+  ),
+  submit: ensure<HTMLButtonElement>("#password-changer-submit"),
+  cancel: ensure<HTMLButtonElement>("#password-changer-cancel"),
+};
+
 export const passwordSearch = ensure<HTMLInputElement>("#password-search");
